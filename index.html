@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+		<style type="text/css">
+			#canvas {
+				width: 100px;
+				padding: 33px 20px;
+				text-align: center;
+				border: 1px solid black;
+			}
+		</style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ greet('afternoon') }}</h1>
+      <p>Job: {{ job }}</p>
+      <p><a :href="website">Site</a></p>
+      <p><input v-bind:value="name" /></p>
+      <p v-html="websiteTag"></p>
+      <p><button @click="changeName">Change Name</button></p>
+
+			<p>
+				<button v-on:click.once="addYear(1)">Add Year</button>
+				<button v-on:dblclick="addYear(10)">Add Year by 10</button>
+				<button v-on:click="subtractYear(1)">Subtract Year</button>
+				<button v-on:dblclick="subtractYear(10)">Subtract Year by 10</button>
+				<div>My age is {{ age }}</div>
+			</p>
+
+			<p>
+				<div id="canvas" v-on:mousemove="updateXY">{{ x }},{{ y }}</div>
+				<a v-on:click.stop="gotoNokia" href="http://nokia.com">Nokia</a>
+			</p>
+    </div>
+ 
+    <script src="src/index.js"></script>
+  </body>
+</html>
